@@ -231,30 +231,34 @@ Modularize the variables with a source of truth in a color book that is provided
 :root {
   /* BASE COLORS */
   --color-black: #000;
-  --color-red: #ff4040;
   --color-white: #fff;
 
-  /* TYPOGRAPHY COLORS */
-  --color-text-1: #4d4d4d;
-  --color-text-2: #333;
-  --color-text-3: #4d4d4d;
+  /* BRAND COLORS */
+  --color-brand-primary: #58a4b0;
+  --color-brand-primary-alt: #417881;
+  --color-brand-secondary: #daa49a;
+
+  /* GRAYS */
+  --color-gray-1: #fcfcfc;
+  --color-gray-2: #adadad;
+  --color-gray-3: #999;
+  --color-gray-4: #4d4d4d;
+  --color-gray-5: #1b1b1b;
+
+  /* NEUTRAL GLOBAL COLORS */
+  --color-g-black: var(--color-black);
+  --color-g-primary-gray: var(--color-gray-4);
+  --color-g-primary-secondary: var(--color-gray-5);
+  --color-g-background-gray: var(--color-gray-1);
 
   /* BUTTONS COLORS */
-  --color-button-1: #86a59c;
-  --color-button-2: #643173;
+  --color-g-button-text: var(--color-white);
+  --color-g-button-background: var(--color-brand-primary);
+  --color-g-button-background-hover: var(--color-brand-primary-alt);
 
   /* BORDER COLORS */
-  --color-border-1: rgba(#a7aec5, 0.5);
-  --color-border-2: #a7aec5;
-
-  /* COMPONENT COLORS */
-  /* CARD BACKGROUND COLORS */
-  --card-color-background-1: #587291;
-  --card-color-background-2: #768ba5;
-
-  /* CARD TEXT COLORS */
-  --card-color-text-1: var(--color-white);
-  --card-color-text-2: var(--color-text-1);
+  --color-g-border-1: rgba(var(--color-gray-2), .5);
+  --color-g-border-2: var(--color-gray-2);
 
   /* FONT FAMILY */
   --font-sans: "Source Sans", sans-serif;
@@ -265,7 +269,18 @@ Modularize the variables with a source of truth in a color book that is provided
   --weight-book: 400;
   --weight-bold: 700;
   --weight-black: 900;
+
+  /* GLOBAL COMPONENT COLORS */
+  --color-g-component-shadow: 0 2px 14px 0 rgba(var(--color-gray-3), .27);
+
+  /* GLOBAL MEASUREMENTS */
+  --global-radius: 6px;
+
+  /* GLOBAL TRANSITION */
+  --global-transitino: .2s ease;
 }
+
+
 ```
 
 ## TYPOGRAPHY.CSS
@@ -324,7 +339,7 @@ appear within a `.t-text`.
 
 ```css
 .t-link {
-  border-bottom: 1px dotted var(--color-border-1);
+  border-bottom: 1px dotted var(--color-g-border-1);
   transition: .2s ease border-bottom, .2s ease color;
 
   &:hover,
