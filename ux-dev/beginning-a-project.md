@@ -285,7 +285,7 @@ Modularize the variables with a source of truth in a color book that is provided
 ## TYPOGRAPHY.CSS
 
 Syles in `typography.css` should be specific to typographic properties. You should apply layout
- through BEM and match the typography class, such as `t-link` with a bem class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
+ through BEM and match the typography class, such as `t-link` with a BEM class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
 
 Typography properties include:
 - `font-family`
