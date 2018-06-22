@@ -46,8 +46,8 @@ stylesheets
   app.css
   base.css
   layout.css
-  variables.css
   typography.css
+  variables.css
 ```
 
 ## APP.CSS
@@ -172,9 +172,9 @@ and `.l-wrap--big` would make sense. If not recurring, `.l-header` would
 be better and would not belong in `layout.css`, but in `header.css`. We should
 should not specify component classes in `layout.css`, only global classes.
 
-layout.css
+`layout.css`
 ```css
-.l-body{
+.l-body {
   display: grid;
   @media (max-width: 799px) {
     grid-template-areas:
@@ -192,32 +192,32 @@ layout.css
     grid-template-columns: 3fr 1fr;
   }
 }
-.l-body--small{
+.l-body--small {
   max-width: 680px;
 }
 .l-body--big {
   max-width: 1020px;
 }
-.l-main{
-  grid-area: main
+.l-main {
+  grid-area: main;
 }
 ```
 
-header.css
+`header.css`
 ```css
-.l-header{
+.l-header {
   grid-area: header;
 }
 ```
-footer.css
+`footer.css`
 ```css
-.l-footer{
+.l-footer {
   grid-area: footer;
 }
 ```
-sidebar.css
+`sidebar.css`
 ```css
-.l-sidebar{
+.l-sidebar {
   grid-area: sidebar;
 }
 ```
@@ -280,15 +280,14 @@ Modularize the variables with a source of truth in a color book that is provided
   --global-transitino: .2s ease;
 }
 
-
 ```
 
 ## TYPOGRAPHY.CSS
 
 Syles in `typography.css` should be specific to typographic properties. You should apply layout
- through BEM and match the typography class, such as `t-link` with a bem class (i.e.- `<a class="nav__link t-link">`). Any box-modal or visual styles declarations should exist within component files.
+ through BEM and match the typography class, such as `t-link` with a bem class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
 
-Typography propertie include:
+Typography properties include:
 - `font-family`
 - `font-style`
 - `font-size`
