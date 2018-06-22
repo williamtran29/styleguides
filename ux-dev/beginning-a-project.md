@@ -176,9 +176,6 @@ layout.css
 ```css
 .l-body{
   display: grid;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
   @media (max-width: 799px) {
     grid-template-areas:
       "header"
@@ -200,6 +197,9 @@ layout.css
 }
 .l-body--big {
   max-width: 1020px;
+}
+.l-main{
+  grid-area: main
 }
 ```
 
@@ -281,34 +281,41 @@ Typography propertie include:
 - `font-variant`
 - `line-height`
 
+In the `:root` define your type scale used throughout the project
+
+```css
+:root {
+  --type-scale-12: .75rem;
+  --type-scale-16: 1rem;
+  --type-scale-20: 1.25rem;
+  --type-scale-24: 1.5rem;
+  --type-scale-32: 2rem;
+}
+```
 
 `.t-display` is used for the shared display font style. Most likely a
 page heading.
 
 ```css
 .t-display {
-  font-weight: var(--bold);
-  @media (max-width: 1199px) {
-    font-size: 24px;
+  font-weight: var(--weight-bold);
+  @media (max-width: 799px) {
+    font-size: var(--type-scale-24);
   }
-  @media (min-width: 1200px) {
-    font-size: 36px;
+  @media (min-width: 800px) {
+    font-size: var(--type-scale-32);
   }
 }
 ```
 
-`.t-text` is used for the shared text font style. Most likely the styles
+`.t-body` is used for the shared text font style. Most likely the styles
 used for blocks of text on a blog or static pages.
 
 ```css
-.t-text {
-  font-weight: var(--light);
-  @media (max-width: 1199px) {
-    font-size: 16px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 18px;
-  }
+.t-body {
+  font-size: var(--type-scale-16);
+  font-weight: var(--weight-book);
+  line-height: 1.556;
 }
 ```
 
@@ -317,8 +324,16 @@ appear within a `.t-text`.
 
 ```css
 .t-link {
-  border-bottom: 1px solid var(--white);
-  text-decoration: none;
+  border-bottom: 1px dotted var(--color-border-1);
+  transition: .2s ease border-bottom, .2s ease color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-black);
+    border-bottom-style: solid;
+    border-bottom-color: var(--color-black);
+  }
 }
 ```
 
