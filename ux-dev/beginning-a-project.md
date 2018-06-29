@@ -136,7 +136,7 @@ button {
   background: transparent;
 }
 textarea {
-  min-height: 136px; /* height of 3 lines */
+  min-height: 8.5em; /* height of 3 lines */
 }
 select,
 button {
@@ -287,15 +287,9 @@ Modularize the variables with a source of truth in a color book that is provided
 Syles in `typography.css` should be specific to typographic properties. You should apply layout
  through BEM and match the typography class, such as `t-link` with a BEM class (i.e.- `<a class="nav__link t-link">`). Any box model or visual style declarations should exist within component files.
 
-Typography properties include:
-- `font-family`
-- `font-style`
-- `font-size`
-- `font-weight`
-- `font-variant`
-- `line-height`
+Typography properties include all styles that effect typography. They don't touch the box-model and try to avoid colors. Some examples include: font-family, font-style, font-weight. Some examples of properties that don't belong are: padding, display, z-index
 
-In the `:root` define your type scale used throughout the project
+In the `:root` define your type scale used throughout the project.
 
 ```css
 :root {
@@ -348,14 +342,17 @@ appear within a `.t-text`.
     border-bottom-style: solid;
     border-bottom-color: var(--color-black);
   }
+  &:focus {
+    box-shadow: 0 4px 8px -6px rgba(0,0,0,0.08), 0 0 11px 0 rgba(0,0,0,0.06), 0 8px 12px -6px rgba(0,0,0,0.10)
+  }
 }
 ```
 
-## Setup SVG Jar
+## SVG Jar Setup
 We use [SVG Jar](https://github.com/ivanvotti/ember-svg-jar) to handle embedding of our SVG images in our Ember projects. To install SVG Jar, run:
 
 `ember install ember-svg-jar`
 
-Place SVG files in your project's `public` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
+Place SVG files in your project's `public/svgs/icons` directory. Using Chrome, visit [http://localhost:4200/ember-svg-jar/index.html](http://localhost:4200/ember-svg-jar/index.html) to select any SVG and add to any template.
 
 For more information about our SVG best practices, [check out our SVG styleguide](https://github.com/DockYard/styleguides/blob/master/ux-dev/svg.md).
